@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Login Page</title>
+	<link rel = "stylesheet" href= "css/style.css">
+</head>
+<body>
+<main>
+    <form method = "post" action = "/login" th:object="${loginRequest}">
+        <h1>Login!</h1>
+
+        <!-- NAME FIELD -->
+        <div class="input-box">
+            <label for="fullname" class="label--required">Full Name</label>
+            <section>
+                
+                <input id="fullname" name ="fullname" required type="text" placeholder="Full Name" />
+            </section>
+            <br>
+        </div>
+
+        <!-- MOBILE FIELD -->
+        <div class="input-box">
+            <label for="mobile" class="label--required">Mobile</label>
+            <section>
+                
+                <input id="mobile" name ="mobile" required type="tel" placeholder="(234) 234-2342" />
+            </section>
+        </div>
+                    <br>
+        
+       
+      
+        <!-- BUTTONS -->
+           
+        
+        <div class="input-box">
+           <input type = "submit" name = "sign-in" value = "Log In">
+        </div>
+        
+         <a href= "/register"> Navigate to Register </a>
+
+    </form>
+    </main>
+
+
+
+
+</body>
+</html>

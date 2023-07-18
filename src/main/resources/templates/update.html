@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit form information</title>
+</head>
+<body>
+<main>
+<form id="updateForm" method="POST" th:action="@{'/update/' + ${updateRequest.id}}" th:object="${updateRequest}">
+
+        <h1>Update!</h1>
+<p>Id: [[${updateRequest.id}]]</p>
+
+
+        <!-- NAME FIELD -->
+        <div class="input-box">
+            <label for="fullname" class="label--required">Name</label>
+            <section>
+                <input id="fullname" name="fullname" required type="text" placeholder="Full Name" th:value=${updateRequest.fullname} />
+            </section>
+            <br>
+        </div>
+
+        <!-- MOBILE FIELD -->
+        <div class="input-box">
+            <label for="mobile" class="label--required">Phone</label>
+            <section>
+                <input id="mobile" name="mobile" required type="tel" placeholder="Mobile No." th:value=${updateRequest.mobile} />
+            </section>
+        </div>
+        <br>
+                    
+         <!-- EMAIL FIELD -->
+        <div class="input-box">
+            <label for="email" class="label--required">Email</label>
+            <section>
+                <input id="email" name="email" required type="email" placeholder="Email" th:value=${updateRequest.email} />
+            </section>
+        </div>
+        
+        <br>
+        
+           <!-- CITY FIELD -->
+        <div class="input-box">
+            <label for="city" class="label--required">City</label>
+            <section>
+                <input id="city" name="city" type="text" placeholder="City" th:value=${updateRequest.city} />
+            </section>
+        </div>
+        
+        <a href="/">Navigate to main</a>
+        <br>
+        
+        <input type="hidden" name="_method" value="PUT">
+        
+        <!-- BUTTONS -->
+        <br>
+        <div class="input-box">
+           <input type="submit" name="update" value="Update">
+        </div>
+
+    </form>
+    
+    <script>
+    document.getElementById("updateForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var form = event.target;
+        var url = form.getAttribute("action");
+        var formData = new FormData(form);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+        xhr.setRequestHeader("X-HTTP-Method-Override", "PUT"); // Set the header to simulate a PUT request
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // Handle the successful response
+                // You can redirect to a success page or perform any other actions
+                window.location.href = "/success";
+            } else {
+                // Handle the error response
+                // You can display an error message or redirect to an error page
+                window.location.href = "/error";
+            }
+        };
+        xhr.send(formData);
+    });
+    </script>
+    </main>
+    </body>
+    </html>

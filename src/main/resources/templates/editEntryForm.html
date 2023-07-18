@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edit Entry</title>
+</head>
+<body>
+<form action="/update/{id}" method="post">
+        <input type="text" name="fullname" value=${entry.fullname}><br>
+        <input type="tel" name="mobile" value="${entry.mobile}"><br>
+        <input type="email" name="email" value="${entry.email}"><br>
+        <input type="text" name="city" value="${entry.city}"><br>
+        
+        <!-- Other input fields for editing the entry -->
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

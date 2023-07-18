@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Registration Page</title>
+	<link rel = "stylesheet" href= "css/style.css">
+</head>
+<body>
+<main>
+    <form method = "post" action = "/register" th:object="${registerRequest}">
+        <h1>Register!</h1>
+
+        <!-- NAME FIELD -->
+        <div class="input-box">
+            <label for="fullname" class="label--required">Name</label>
+            <section>
+                
+                <input id="fullname" name ="fullname" required type="text" placeholder="Full Name"  />
+            </section>
+            <br>
+        </div>
+
+        <!-- MOBILE FIELD -->
+        <div class="input-box">
+            <label for="mobile" class="label--required">Phone</label>
+            <section>
+                
+                <input id="mobile" name ="mobile" required type="tel" placeholder="(234) 234-2342" />
+            </section>
+        </div>
+                    <br>
+                    
+         <!-- EMAIL FIELD -->
+        <div class="input-box">
+            <label for="email" class="label--required">Email</label>
+            <section>
+                
+                <input id="email" name ="email" required type="email" placeholder="Email"  />
+            </section>
+        </div>
+        
+        <br>
+        
+           <!-- CITY FIELD -->
+        <div class="input-box">
+            <label for="city" class="label--required">City</label>
+            <section>
+                
+                <input id="city" name ="city"  type="text" placeholder="City" />
+            </section>
+        </div>
+        
+        <a href= "/"> Navigate to main </a>
+
+                  <br>
+      
+        <!-- BUTTONS -->
+                    <br>
+        
+        <div class="input-box">
+           <input type = "submit" name = "register" value = "Register">
+        </div>
+
+    </form>
+    </main>
+
+
+
+</body>
+</html>

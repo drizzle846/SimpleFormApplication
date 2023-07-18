@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<meta charset="UTF-8">
+<head>
+  <title>Search Results</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Full Name</th>
+      <th>City</th>
+      <th>Mobile</th>
+      <th>Email</th>
+      <th>Edit</th>
+      <th>QRCode</th>
+    </tr>
+    <!-- Search results loop -->
+    <tr th:each="result : ${searchResults}">
+      <td th:text="${result.id}">ID</td>
+      <td th:text="${result.fullname}">Full Name</td>
+      <td th:text="${result.city}">City</td>
+      <td th:text="${result.mobile}">Mobile</td>
+      <td th:text="${result.email}">Email</td>
+      <td>
+        <a th:href="@{/update/{id}(id=${result.id})}">Edit</a>
+      </td>
+      <td>
+        <img th:src="@{'https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://localhost:8099/userinfoqr/' + ${result.id}}"/>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
