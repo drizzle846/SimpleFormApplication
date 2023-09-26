@@ -25,7 +25,7 @@ public class EditServlet extends HttpServlet {
 
         try {
             // Establish a connection to the database
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/test_db", "postgres", "SS080807");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/test_db", "postgres", "********");
 
             // Prepare the SQL query to fetch the entry with the given ID
             String sql = "SELECT * FROM your_table WHERE id = ?";
